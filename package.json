@@ -1,0 +1,70 @@
+{
+  "name": "ollama-code-generator",
+  "displayName": "Ollama Code Generator",
+  "description": "使用本地Ollama服务生成代码",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ollama-code-generator.generateCode",
+        "title": "Ollama: 生成代码"
+      }
+    ],
+    "configuration": {
+      "title": "Ollama Code Generator",
+      "properties": {
+        "ollama-code-generator.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:11434/api/chat",
+          "description": "Ollama服务器URL"
+        },
+        "ollama-code-generator.model": {
+          "type": "string",
+          "default": "llama3",
+          "description": "使用的Ollama模型名称"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "eslint": "^8.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.2",
+    "ts-loader": "^9.3.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tianna1121/vscode-ollama-tester.git"
+  }
+}
