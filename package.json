@@ -2,9 +2,10 @@
   "name": "ollama-code-generator",
   "displayName": "Ollama Code Generator",
   "description": "使用本地Ollama服务生成代码",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "publisher": "zy",
   "engines": {
-    "vscode": "^1.98.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Other"
@@ -23,12 +24,12 @@
       "properties": {
         "ollama-code-generator.serverUrl": {
           "type": "string",
-          "default": "http://localhost:11434/api/chat",
-          "description": "Ollama服务器URL"
+          "default": "http://localhost:11434",
+          "description": "Ollama服务器基础URL (不包含/api/路径)"
         },
         "ollama-code-generator.model": {
           "type": "string",
-          "default": "llama3",
+          "default": "deepseek-r1:32b",
           "description": "使用的Ollama模型名称"
         }
       }
